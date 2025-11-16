@@ -296,13 +296,25 @@ a:hover {
   min-height: 400px;         
 }
 
+.gallery-item {
+  background: #fff;
+  padding: 16px 16px 18px;
+  border: 1px solid #e0ded8;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;   /* NEW — centers all content vertically */
+  min-height: 400px;         /* NEW — controls the height of each white square */
+}
+
 .gallery-item img {
   max-width: 90%;
   max-height: 85%;
-  object-fit: contain;       
+  object-fit: contain;        /* NEW — keeps whole image visible */
   border-radius: 0;
   cursor: zoom-in;
-  margin: auto;              
+  margin: auto;               /* NEW — centers inside flexbox */
 }
 
 .gallery-item figcaption {
