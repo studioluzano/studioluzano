@@ -1,74 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Antonio Luzano – Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Illustration by Antonio Luzano." />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antonio Luzano – Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="page">
-<header class="site-header">
-  <div class="avatar-wrapper">
-    <img src="images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
-  </div>
+    <div class="page">
 
-  <h1 class="site-title">ANTONIO LUZANO</h1>
-  <p class="tagline">Illustration · Concept Art</p>
+        <header class="site-header">
+            <div class="avatar-wrapper">
+                <img src="images/avatar.jpg" alt="Avatar" class="avatar">
+            </div>
 
-  <!-- Section links under name -->
-<nav class="section-nav">
-  <ul class="menu">
-    <!-- Illustration -->
-    <li class="menu-item has-dropdown">
-      <a href="#">Illustration</a>
-      <ul class="dropdown">
-        <li><a href="projects/run.html">RUN – Graphic Novel</a></li>
-        <li><a href="projects/un-peu-de-toi.html">Un peu de toi</a></li>
-        <li><a href="projects/everyday-walk.html">Everyday Walk</a></li>
-        <li><a href="projects/i-just-want-to-be-super.html">I Just Want to be Super</a></li>
-      </ul>
-    </li>
+            <h1 class="site-title">ANTONIO LUZANO</h1>
+            <p class="tagline">Illustration · Concept Art</p>
+        </header>
 
-    <!-- Concept Art -->
-    <li class="menu-item has-dropdown">
-      <a href="#">Concept Art</a>
-      <ul class="dropdown">
-        <li><a href="projects/visdev-worlds.html">Visdev portfolio</a></li>
-        <!-- add more concept-art projects later if you want -->
-      </ul>
-    </li>
+        <section class="featured-section">
+            <div class="project-grid">
 
-    <!-- Personal -->
-    <li class="menu-item has-dropdown">
-      <a href="#">Personal</a>
-      <ul class="dropdown">
-        <li><a href="projects/personal.html">Personal work</a></li>
-        <li><a href="projects/zines-photography.html">Zines & photography</a></li>
-      </ul>
-    </li>
+                <a href="projects/run.html" class="project-card">
+                    <div class="thumb" style="background-image:url('images/thumb-run.jpg');"></div>
+                    <h2>RUN</h2>
+                </a>
 
-    <!-- Classes + About go to sections further down the page -->
-    <li class="menu-item">
-      <a href="#classes">Classes</a>
-    </li>
-    <li class="menu-item">
-      <a href="#about">About</a>
-    </li>
-  </ul>
-</nav>
+                <a href="projects/un-peu-de-toi.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Un peu de toi</h2>
+                </a>
 
-</header>
+                <a href="projects/everyday-walk.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Everyday Walk</h2>
+                </a>
 
-    <main>
+                <a href="projects/jackies-drawing.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Jackie’s Drawing</h2>
+                </a>
 
-  <!-- Illustration section -->
-  
+                <a href="projects/super.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>I Just Want to be Super</h2>
+                </a>
 
-</main>
+                <a href="projects/visdev-worlds.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Animation Concept Art (password protected)</h2>
+                </a>
 
+                <a href="projects/personal.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Personal work</h2>
+                </a>
 
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Antonio Luzano. All rights reserved. Do not copy, save or redistribute without written pwemission. 
+                <a href="projects/studio-luzano-koulu.html" class="project-card">
+                    <div class="thumb"></div>
+                    <h2>Studio Luzano Koulu</h2>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="text-section" id="classes">
+            <h2>Studio Luzano Koulu · Observation Drawing Basics</h2>
+            <p>I teach beginner-friendly drawing classes in my studio in Kruununhaka, Helsinki. We focus on learning to see like an artist, noticing shapes, light, and proportions, in a calm and relaxed environment. No experience needed. Just curiosity!</p>
+            <p><strong>Interested?</strong> Send me an email – details below.</p>
+        </section>
+
+        <section class="text-section" id="about">
+            <h2>About</h2>
+            <p>I’m a Montréal-born concept artist and illustrator now working in Helsinki, with a decade of experience in animation, publishing, and visual storytelling. I’m known for adapting to many styles and bringing ideas to life across TV productions, children’s books, and graphic novels.</p>
+        </section>
+
+        <section class="text-section">
+            <h2>Contact</h2>
+            <p>For work, collaborations or class enquiries:<br>
+            antonioluzano@gmail.com</p>
+
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            © Antonio Luzano. All rights reserved.
+        </footer>
+
+    </div>
+</body>
+</html>
