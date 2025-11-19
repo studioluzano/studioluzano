@@ -372,3 +372,78 @@ a:hover {
   cursor: zoom-out;
   background: #111;
 }
+
+/* ------------------------------
+   PROJECT PAGES – STUDIO LUZANO KOULU
+------------------------------ */
+
+/* Back link at top of project pages */
+.back-row {
+  margin-bottom: 10px;
+}
+
+.back-link {
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.back-link:hover {
+  border-bottom-color: #8B775A;
+}
+
+/* Page title + intro on project pages */
+.project-header {
+  margin-bottom: 18px;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.page-intro {
+  font-size: 0.95rem;
+  color: #555;
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+/* Studio gallery just reuses the normal gallery,
+   but we give it a little extra breathing room below */
+.studio-gallery {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+/* Simple bullet lists */
+.simple-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin-top: 6px;
+}
+
+/* Small info blocks (location, group size, etc.) */
+.class-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 10px;
+}
+
+.class-info-block {
+  flex: 1 1 220px;
+  font-size: 0.95rem;
+}
+
+.class-info-block h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: #5E6B54;
+}
+
+@media (max-width: 700px) {
+  .class-info-grid {
+    flex-direction: column;
+  }
+}
