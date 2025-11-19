@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Antonio Luzano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=6" />
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- Header / Logo -->
+    <header class="site-header">
+      <div class="avatar-wrapper">
+        <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
+      </div>
+
+      <h1 class="site-title">
+        <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
+      </h1>
+
+      <p class="tagline">Illustrator · Concept Artist</p>
+
+      <!-- Navigation -->
+      <nav class="section-nav">
+        <ul class="menu">
+          <li class="menu-item has-dropdown">
+            <a href="#">Illustration</a>
+            <ul class="dropdown">
+              <li><a href="run.html">RUN – Graphic Novel</a></li>
+              <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
+              <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
+              <li><a href="everyday-walk.html">Everyday Walk</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item has-dropdown">
+            <a href="#">Concept Art</a>
+            <ul class="dropdown">
+              <li><a href="visdev-worlds.html">NDA Portfolio</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+
+    <!-- ABOUT CONTENT -->
+    <main>
+      <section class="text-section">
+        <h2>About</h2>
+
+        <p>
+          I’m Antonio Luzano, a Montréal-born illustrator and concept artist now based in Helsinki.
+          I’ve spent over a decade creating artwork for animated TV series, children’s books,
+          visual development, and publishing. My work focuses on expressive characters,
+          atmospheric environments, and thoughtful storytelling.
+        </p>
+
+        <p>
+          I’ve collaborated with studios and publishers in Canada, Finland, and abroad, and I’m
+          always excited to explore new visual challenges — whether through animation,
+          picture books, or personal projects.
+        </p>
+
+        <br>
+
+        <!-- Optional expandable long version -->
+        <details>
+          <summary style="cursor:pointer; margin-bottom:10px;">Read a bit more</summary>
+          <p style="margin-top:12px;">
+            Originally from Montréal, Canada, I moved to Helsinki to continue developing my
+            artistic career and to build Studio Luzano, where I create illustration,
+            concept art, and teach observational drawing.
+            Throughout my work, I try to balance imagination with emotional clarity —
+            whether designing worlds for animation or illustrating quiet, intimate stories
+            for young readers.
+          </p>
+        </details>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="text-section" id="contact">
+        <h2>Contact</h2>
+        <p>
+          For work, collaborations or enquiries:<br />
+          <a href="mailto:antonioluzano@gmail.com">antonioluzano@gmail.com</a>
+        </p>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/studioluzano" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Antonio Luzano. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
