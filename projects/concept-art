@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animation Concept Art – NDA Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Password-protected animation concept art portfolio by Antonio Luzano." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=concept" />
+</head>
+
+<body>
+  <div class="page">
+
+    <header class="site-header">
+      <div class="avatar-wrapper">
+        <a href="../index.html">
+          <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
+        </a>
+      </div>
+
+      <h1 class="site-title">
+        <a href="../index.html">
+          <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
+        </a>
+      </h1>
+
+      <p class="tagline">Illustrator · Concept Artist</p>
+
+      <nav class="section-nav">
+        <ul class="menu">
+          <li class="menu-item has-dropdown">
+            <a href="#">Illustration</a>
+            <ul class="dropdown">
+              <li><a href="run.html">RUN – Graphic Novel</a></li>
+              <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
+              <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
+              <li><a href="everyday-walk.html">Everyday Walk</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item has-dropdown">
+            <a href="#">Concept Art</a>
+            <ul class="dropdown">
+              <li><a href="concept-art.html">NDA Portfolio</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="text-section">
+        <h2 class="page-title">Animation Concept Art · NDA Portfolio</h2>
+        <p class="page-intro">
+          This section contains production concept art that is not publicly available.
+          Access is limited to recruiters and partners with the password. If you’d like to
+          view this work, please <a href="mailto:antonioluzano@gmail.com">email me</a> for access.
+        </p>
+
+        <!-- Password box -->
+        <div id="password-box" class="password-box">
+          <form id="password-form" class="password-form">
+            <label for="portfolio-password">Enter password</label>
+            <input
+              type="password"
+              id="portfolio-password"
+              autocomplete="off"
+              placeholder="Password"
+            />
+            <button type="submit">Enter</button>
+            <p class="password-hint">
+              Need the password? Contact me directly.
+            </p>
+            <p id="password-error" class="password-error hidden">
+              Incorrect password. Please try again.
+            </p>
+          </form>
+        </div>
+
+        <!-- Protected content -->
+        <div id="protected-content" class="hidden">
+          <p class="page-intro">
+            Thank you. Below is a small selection of NDA-protected concept art.
+            Please do not share or redistribute.
+          </p>
+
+          <section class="gallery">
+
+            <figure class="gallery-item">
+              <img src="../images/concept-1.jpg" alt="Keyframe concept art">
+              <figcaption>Keyframe concept exploring mood and lighting.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="../images/concept-2.jpg" alt="Environment concept art">
+              <figcaption>Environment design with colour story and atmosphere.</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img src="../images/concept-3.jpg" alt="Prop / vehicle concept art">
+              <figcaption>Shape language exploration for props / vehicles.</figcaption>
+            </figure>
+
+          </section>
+        </div>
+      </section>
+
+      <section class="text-section">
+        <h2>Contact</h2>
+        <p>
+          For work, collaborations or to request the portfolio password:<br />
+          <a href="mailto:antonioluzano@gmail.com">antonioluzano@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Antonio Luzano. All rights reserved. Do not copy, save or redistribute without written permission.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const CORRECT_PASSWORD = "blueforest"; // change this!
+
+    const form = document.getElementById('password-form');
+    const input = document.getElementById('portfolio-password');
+    const error = document.getElementById('password-error');
+    const box = document.getElementById('password-box');
+    const protectedContent = document.getElementById('protected-content');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const value = input.value.trim();
+
+      if (value === CORRECT_PASSWORD) {
+        box.style.display = 'none';
+        protectedContent.classList.remove('hidden');
+        error.classList.add('hidden');
+      } else {
+        error.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
