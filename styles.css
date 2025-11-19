@@ -33,7 +33,7 @@ a {
 }
 
 a:hover {
-  color: #8B775A; /* warm brown */
+  color: #8B775A;            /* warm brown */
   text-decoration: underline;
 }
 
@@ -87,9 +87,8 @@ a:hover {
   font-size: 0.9rem;
   color: #7a8270;
   margin-top: 2px;
-  margin-bottom: 6px;     /* was 10px */
+  margin-bottom: 6px;
 }
-
 
 /* ------------------------------
    DROPDOWN MENU (Janet-style)
@@ -97,7 +96,7 @@ a:hover {
 
 .section-nav {
   margin-top: 0;
-  margin-bottom: 18px;    /* was 22px */
+  margin-bottom: 18px;
 }
 
 .section-nav .menu {
@@ -116,13 +115,19 @@ a:hover {
   letter-spacing: 0.06em;
 }
 
+/* NAV LINKS: no built-in underline */
+.section-nav a,
+.section-nav a:hover {
+  text-decoration: none !important;   /* prevents double underline */
+}
+
 .menu-item > a {
   padding-bottom: 3px;
   border-bottom: 1px solid transparent;
 }
 
 .menu-item > a:hover {
-  border-bottom-color: #8B775A;
+  border-bottom-color: #8B775A;        /* clean single line on hover */
 }
 
 /* Dropdown container */
@@ -149,10 +154,12 @@ a:hover {
   font-size: 0.9rem;
   white-space: nowrap;
   border-bottom: 1px solid transparent;
+  text-decoration: none;             /* no underline in dropdown either */
 }
 
 .dropdown a:hover {
   border-bottom-color: #8B775A;
+  text-decoration: none;             /* keep it to the border only */
 }
 
 /* Show dropdown on hover */
