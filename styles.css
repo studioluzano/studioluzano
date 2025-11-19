@@ -32,9 +32,10 @@ a {
   text-decoration: none;
 }
 
+/* global hover – no underline here */
 a:hover {
   color: #8B775A;            /* warm brown */
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 /* ------------------------------
@@ -115,7 +116,7 @@ a:hover {
   letter-spacing: 0.06em;
 }
 
-/* NAV LINKS: no built-in underline */
+/* NAV LINKS: no text underline at all */
 .section-nav a,
 .section-nav a:hover {
   text-decoration: none !important;   /* prevents double underline */
@@ -212,6 +213,12 @@ a:hover {
 
 .text-section p {
   line-height: 1.7;
+}
+
+/* body-text links: get an underline on hover */
+.text-section a:hover,
+.site-footer a:hover {
+  text-decoration: underline;
 }
 
 /* ------------------------------
