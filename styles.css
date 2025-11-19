@@ -172,9 +172,9 @@ a:hover {
 .hero-slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;      /* adjust if you want taller/shorter hero */
+  aspect-ratio: 2000 / 1300;   /* your real ratio ≈ 1.538 */
   overflow: hidden;
-  background: #111;         /* frame color behind the comics */
+  background: #111;
 }
 
 .hero-slide {
