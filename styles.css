@@ -153,17 +153,36 @@ a:hover {
 /* ------------------------------
    HERO IMAGE BELOW NAME
 ------------------------------ */
+/* ------------------------------
+   HERO SLIDER (soft crossfade)
+------------------------------ */
 .hero {
   width: 100%;
   margin-bottom: 40px;
 }
 
-.hero-img {
+.hero-slider {
+  position: relative;
   width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;
+  aspect-ratio: 4 / 3;      /* adjust if you want taller/shorter hero */
+  overflow: hidden;
+  background: #111;         /* frame color behind the comics */
 }
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* keeps full image visible; use 'cover' for crop */
+  opacity: 0;
+  transition: opacity 1.6s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
 
 /* ------------------------------
    TEXT SECTIONS
