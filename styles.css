@@ -52,46 +52,51 @@ a:hover {
 ------------------------------ */
 .site-header {
   text-align: center;
-  margin-bottom: 32px;    /* a bit tighter overall */
+  margin-bottom: 32px;
 }
 
 .avatar-wrapper {
-  margin-bottom: 10px;    /* small gap under avatar */
+  margin-bottom: 10px;
 }
 
+/* avatar size fix */
+.avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #111;
+  background: #fff;
+}
+
+/* h1 wrapper around your hand-drawn logo */
 .site-title {
-  margin: 0 0 6px;        /* logo sits close to avatar */
+  margin: 0 0 6px;
 }
 
+/* hand-drawn name logo size */
 .name-logo {
   display: block;
   margin: 0 auto;
-  width: 280px;      /* <<< FIXED SIZE */
+  max-width: 260px;   /* tweak this number if you want bigger/smaller */
+  width: 100%;
   height: auto;
-  max-width: 80%;    /* prevents it from ever growing too large */
 }
 
 .tagline {
   font-size: 0.9rem;
   color: #7a8270;
   margin-top: 4px;
-  margin-bottom: 18px;    /* pulls nav up a little */
+  margin-bottom: 18px;
 }
-
-/* adjust nav spacing slightly */
-.section-nav {
-  margin-top: 0;
-  margin-bottom: 36px;
-}
-
 
 /* ------------------------------
-   DROPDOWN MENU (Janet Rodriguez style)
+   DROPDOWN MENU (Janet-style)
 ------------------------------ */
 
 .section-nav {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 0;
+  margin-bottom: 36px;
 }
 
 .section-nav .menu {
@@ -155,9 +160,6 @@ a:hover {
 }
 
 /* ------------------------------
-   HERO IMAGE BELOW NAME
------------------------------- */
-/* ------------------------------
    HERO SLIDER (soft crossfade)
 ------------------------------ */
 .hero {
@@ -186,7 +188,6 @@ a:hover {
 .hero-slide.active {
   opacity: 1;
 }
-
 
 /* ------------------------------
    TEXT SECTIONS
