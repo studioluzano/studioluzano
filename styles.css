@@ -525,3 +525,134 @@ a:hover {
   font-size: 1.05rem;
 }
 
+/* ------------------------------
+   STUDIO LUZANO KOULU PAGE
+------------------------------ */
+
+/* Intro block under the main header */
+.koulu-intro {
+  max-width: 760px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.koulu-intro .back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  color: #7a8270;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.koulu-intro .back-link:hover {
+  border-bottom-color: #8B775A;
+  color: #8B775A;
+}
+
+.koulu-intro .page-title {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.koulu-intro .intro-text {
+  font-size: 0.95rem;
+  max-width: 640px;
+  margin: 0 auto 18px;
+  line-height: 1.7;
+}
+
+/* soft horizontal rule under intro */
+.soft-divider {
+  border: 0;
+  border-top: 1px solid #e1ddcf;
+  width: 120px;
+  margin: 0 auto;
+}
+
+/* Main gallery area (space + tools) */
+.koulu-gallery {
+  max-width: 960px;
+  margin: 40px auto 50px;
+}
+
+/* Section headings like “The Space”, “Tools & Materials” */
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #7a8270;
+  margin: 32px 0 18px;
+}
+
+.section-title.small {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+/* small intro line above the first image grid */
+.koulu-gallery-intro {
+  max-width: 640px;
+  margin: 0 auto 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Image grids */
+.koulu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 820px) {
+  .koulu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.koulu-item {
+  background: #FFFDFC;
+  border: 1px solid #d7d3c4;
+  padding: 14px 14px 18px;
+}
+
+.koulu-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.koulu-item figcaption {
+  font-size: 0.85rem;
+  color: #777;
+  text-align: center;
+}
+
+/* About / price block */
+.koulu-description {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: left;
+}
+
+.koulu-description p {
+  margin-bottom: 10px;
+}
+
+.koulu-description a {
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+}
+
+.koulu-description a:hover {
+  border-bottom-color: #8B775A;
+  color: #8B775A;
+}
