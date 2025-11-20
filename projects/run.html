@@ -76,7 +76,7 @@
           <img
             id="run-slide-img"
             class="run-slide-img"
-            src="../images/run-01.jpg"
+            src="../images/run-01.jpg?v=2"
             alt="RUN graphic novel spread"
           >
 
@@ -102,9 +102,11 @@
       </section>
     </main>
 
-    <!-- Lightbox overlay -->
+    <!-- Lightbox overlay with arrows -->
     <div id="lightbox" class="lightbox-overlay">
+      <button class="lightbox-arrow lightbox-prev" aria-label="Previous spread">‹</button>
       <img src="" alt="">
+      <button class="lightbox-arrow lightbox-next" aria-label="Next spread">›</button>
     </div>
 
     <footer class="site-footer">
@@ -145,6 +147,11 @@
     const prevBtn = document.querySelector('.run-prev');
     const nextBtn = document.querySelector('.run-next');
 
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
     let runIndex = 0;
 
     // FADE-IN / FADE-OUT VERSION
@@ -168,7 +175,13 @@
 
         // fade in
         runImg.style.opacity = 1;
-      }, 200); // short delay that matches your CSS transition nicely
+
+        // if lightbox is open, keep it in sync
+        if (lightbox && lightbox.classList.contains('visible') && lightboxImg) {
+          lightboxImg.src = slide.src;
+          lightboxImg.alt = slide.alt;
+        }
+      }, 200);
     }
 
     if (prevBtn && nextBtn && runSlides.length) {
@@ -178,19 +191,39 @@
     }
 
     // --- Lightbox (click to enlarge current slide) ---
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
-
     if (runImg && lightbox && lightboxImg) {
+      // Open lightbox when clicking the small image
       runImg.addEventListener('click', () => {
-        lightboxImg.src = runImg.src;
-        lightboxImg.alt = runImg.alt || '';
+        const slide = runSlides[runIndex];
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.alt;
         lightbox.classList.add('visible');
       });
 
-      lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('visible');
-        lightboxImg.src = '';
+      // Close only when clicking on the dark background
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('visible');
+          lightboxImg.src = '';
+        }
+      });
+
+      // Prevent image click from closing the lightbox
+      lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // Lightbox arrows – reuse the same slider logic
+    if (lightboxPrev && lightboxNext && lightboxImg) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex - 1);
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex + 1);
       });
     }
   </script>
