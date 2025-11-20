@@ -349,6 +349,36 @@ a:hover {
   max-width: 90%;
 }
 
+/* RUN project intro + links */
+.project-intro {
+  margin-bottom: 28px;
+}
+
+.run-links {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.run-links h2 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.run-links p {
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin: 0 auto 6px;
+}
+
+.run-links a {
+  border-bottom: 1px solid transparent;
+}
+
+.run-links a:hover {
+  border-bottom-color: #8B775A;
+}
+
+
 /* ------------------------------
    LIGHTBOX
 ------------------------------ */
