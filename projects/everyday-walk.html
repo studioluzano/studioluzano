@@ -4,19 +4,21 @@
   <meta charset="UTF-8" />
   <title>Everyday Walk · Studio Luzano</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Illustrations from Everyday Walk, a personal series by Antonio Luzano." />
+  <meta name="description" content="Everyday Walk – a quiet series of illustrations about walking, noticing small things, and city moods by Antonio Luzano." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css" />
 </head>
 
 <body>
   <div class="page">
-    <!-- Header (same as other project pages) -->
+    <!-- Same header as other project pages -->
     <header class="site-header">
+      <!-- Avatar → home -->
       <a href="../index.html" class="avatar-wrapper">
         <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
       </a>
 
+      <!-- Hand-drawn logo → home -->
       <h1 class="site-title">
         <a href="../index.html">
           <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
@@ -25,12 +27,13 @@
 
       <p class="tagline">Illustrator · Concept Artist</p>
 
+      <!-- Top navigation -->
       <nav class="section-nav">
         <ul class="menu">
           <li class="menu-item has-dropdown">
             <a href="#">Illustration</a>
             <ul class="dropdown">
-              <li><a href="run.html">RUN – Graphic Novel</a></li>
+              <li><a href="run.html">RUN</a></li>
               <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
               <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
               <li><a href="everyday-walk.html">Everyday Walk</a></li>
@@ -44,14 +47,19 @@
             </ul>
           </li>
 
-          <li class="menu-item"><a href="studio-luzano-koulu.html">Studio Luzano Koulu</a></li>
-          <li class="menu-item"><a href="about.html">About</a></li>
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <!-- Intro -->
+      <!-- Intro for the project -->
       <section class="project-intro">
         <h1 class="page-title">Everyday Walk</h1>
         <p class="page-intro">
@@ -60,11 +68,13 @@
         </p>
       </section>
 
-      <!-- Slideshow frame (with arrows) -->
+      <!-- Slider (same structure as RUN) -->
       <section class="run-slider">
         <div class="run-frame">
-          <button class="run-arrow ew-prev" aria-label="Previous image">‹</button>
+          <!-- left arrow -->
+          <button class="run-arrow run-prev" aria-label="Previous image">‹</button>
 
+          <!-- current slide -->
           <img
             id="ew-slide-img"
             class="run-slide-img"
@@ -72,16 +82,17 @@
             alt="Everyday Walk illustration"
           >
 
-          <button class="run-arrow ew-next" aria-label="Next image">›</button>
+          <!-- right arrow -->
+          <button class="run-arrow run-next" aria-label="Next image">›</button>
         </div>
 
         <p id="ew-slide-caption" class="run-caption">
-          Evening light on the way home, when everything feels a little slower.
+          Passing figures and trees blending into one soft moment.
         </p>
       </section>
     </main>
 
-    <!-- Lightbox with arrows -->
+    <!-- Lightbox overlay with big arrows, reusing global styles -->
     <div id="lightbox" class="lightbox-overlay">
       <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">‹</button>
       <img src="" alt="">
@@ -95,118 +106,119 @@
 
   <script>
     // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ----- Everyday Walk slides -----
-    const everydaySlides = [
+    // --- Everyday Walk slides ---
+    const ewSlides = [
       {
-        src: "../images/everyday-walk-01.jpg",
-        alt: "Everyday Walk illustration 1",
-        caption: "Evening light on the way home, when everything feels a little slower."
+        src: '../images/everyday-walk-01.jpg',
+        alt: 'Everyday Walk – bird flying over the roof',
+        caption: 'Passing figures and trees blending into one soft moment.'
       },
       {
-        src: "../images/everyday-walk-02.jpg",
-        alt: "Everyday Walk illustration 2",
-        caption: "A quiet corner where warm windows and cool shadows overlap."
+        src: '../images/everyday-walk-02.jpg',
+        alt: 'Everyday Walk – second image',
+        caption: 'Pausing on small details: a corner, a branch, a glimpse of sky.'
       },
       {
-        src: "../images/everyday-walk-03.jpg",
-        alt: "Everyday Walk illustration 3",
-        caption: "Passing figures and trees blending into one soft moment."
+        src: '../images/everyday-walk-03.jpg',
+        alt: 'Everyday Walk – third image',
+        caption: 'Light shifting as you turn a familiar street.'
       },
       {
-        src: "../images/everyday-walk-04.jpg",
-        alt: "Everyday Walk illustration 4",
-        caption: "Footsteps, reflections, and the rhythm of familiar streets."
+        src: '../images/everyday-walk-04.jpg',
+        alt: 'Everyday Walk – fourth image',
+        caption: 'Figures drifting in and out of frame like passing thoughts.'
       },
       {
-        src: "../images/everyday-walk-05.jpg",
-        alt: "Everyday Walk illustration 5",
-        caption: "The pause before going inside — the last breath of the day."
+        src: '../images/everyday-walk-05.jpg',
+        alt: 'Everyday Walk – fifth image',
+        caption: 'A quiet moment that feels like the end of a long walk.'
       }
     ];
 
-    const ewImg      = document.getElementById("ew-slide-img");
-    const ewCaption  = document.getElementById("ew-slide-caption");
-    const prevBtn    = document.querySelector(".ew-prev");
-    const nextBtn    = document.querySelector(".ew-next");
+    const ewImg      = document.getElementById('ew-slide-img');
+    const ewCaption  = document.getElementById('ew-slide-caption');
+    const ewPrevBtn  = document.querySelector('.run-prev');
+    const ewNextBtn  = document.querySelector('.run-next');
 
-    const lightbox   = document.getElementById("lightbox");
-    const lightboxImg = lightbox.querySelector("img");
-    const lightboxPrev = document.querySelector(".lightbox-prev");
-    const lightboxNext = document.querySelector(".lightbox-next");
+    const lightbox   = document.getElementById('lightbox');
+    const lightboxImg  = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
 
     let ewIndex = 0;
 
-    function showEverydaySlide(index) {
-      if (index < 0) index = everydaySlides.length - 1;
-      if (index >= everydaySlides.length) index = 0;
+    function showEwSlide(index) {
+      if (!ewImg || !ewCaption) return;
+
+      if (index < 0) index = ewSlides.length - 1;
+      if (index >= ewSlides.length) index = 0;
       ewIndex = index;
 
-      const slide = everydaySlides[ewIndex];
+      const slide = ewSlides[ewIndex];
 
-      // Fade out
+      // fade out
       ewImg.style.opacity = 0;
 
       setTimeout(() => {
-        // Swap image + caption
         ewImg.src = slide.src;
         ewImg.alt = slide.alt;
         ewCaption.textContent = slide.caption;
 
-        // Fade in
+        // fade in
         ewImg.style.opacity = 1;
 
-        // If lightbox is open, keep it in sync
-        if (lightbox.classList.contains("visible")) {
+        // keep lightbox in sync if it’s open
+        if (lightbox && lightbox.classList.contains('visible') && lightboxImg) {
           lightboxImg.src = slide.src;
           lightboxImg.alt = slide.alt;
         }
       }, 200);
     }
 
-    // Frame arrows
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener("click", () => showEverydaySlide(ewIndex - 1));
-      nextBtn.addEventListener("click", () => showEverydaySlide(ewIndex + 1));
+    if (ewPrevBtn && ewNextBtn && ewSlides.length) {
+      ewPrevBtn.addEventListener('click', () => showEwSlide(ewIndex - 1));
+      ewNextBtn.addEventListener('click', () => showEwSlide(ewIndex + 1));
+      showEwSlide(0); // initial slide
     }
 
-    // Click small image → open lightbox
+    // --- Lightbox behaviour (click to enlarge + arrows inside) ---
     if (ewImg && lightbox && lightboxImg) {
-      ewImg.addEventListener("click", () => {
-        const slide = everydaySlides[ewIndex];
+      // open
+      ewImg.addEventListener('click', () => {
+        const slide = ewSlides[ewIndex];
         lightboxImg.src = slide.src;
         lightboxImg.alt = slide.alt;
-        lightbox.classList.add("visible");
+        lightbox.classList.add('visible');
       });
 
-      // Close when clicking on dark background
-      lightbox.addEventListener("click", (e) => {
+      // close when clicking dark background
+      lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
-          lightbox.classList.remove("visible");
-          lightboxImg.src = "";
+          lightbox.classList.remove('visible');
+          lightboxImg.src = '';
         }
       });
 
-      // Don’t close when clicking on the image itself
-      lightboxImg.addEventListener("click", (e) => e.stopPropagation());
-    }
-
-    // Lightbox arrows
-    if (lightboxPrev && lightboxNext) {
-      lightboxPrev.addEventListener("click", (e) => {
+      // don’t close when clicking image itself
+      lightboxImg.addEventListener('click', (e) => {
         e.stopPropagation();
-        showEverydaySlide(ewIndex - 1);
-      });
-
-      lightboxNext.addEventListener("click", (e) => {
-        e.stopPropagation();
-        showEverydaySlide(ewIndex + 1);
       });
     }
 
-    // Initial slide
-    showEverydaySlide(0);
+    // lightbox arrows
+    if (lightboxPrev && lightboxNext && lightboxImg) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showEwSlide(ewIndex - 1);
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showEwSlide(ewIndex + 1);
+      });
+    }
   </script>
 </body>
 </html>
