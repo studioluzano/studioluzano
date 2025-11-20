@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Everyday Walk · Studio Luzano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Illustrations from Everyday Walk, a personal series by Antonio Luzano." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <div class="page">
+    <!-- Same header as the other project pages -->
+    <header class="site-header">
+      <!-- Avatar → home -->
+      <a href="../index.html" class="avatar-wrapper">
+        <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
+      </a>
+
+      <!-- Hand-drawn logo → home -->
+      <h1 class="site-title">
+        <a href="../index.html">
+          <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
+        </a>
+      </h1>
+
+      <p class="tagline">Illustrator · Concept Artist</p>
+
+      <!-- Top navigation -->
+      <nav class="section-nav">
+        <ul class="menu">
+          <li class="menu-item has-dropdown">
+            <a href="#">Illustration</a>
+            <ul class="dropdown">
+              <li><a href="run.html">RUN – Graphic Novel</a></li>
+              <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
+              <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
+              <li><a href="everyday-walk.html">Everyday Walk</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item has-dropdown">
+            <a href="#">Concept Art</a>
+            <ul class="dropdown">
+              <li><a href="concept-art.html">NDA Portfolio</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Intro for the project -->
+      <section class="project-intro">
+        <h1 class="page-title">Everyday Walk</h1>
+        <p class="page-intro">
+          A small series of illustrations about quiet walks, small discoveries and the mood of moving
+          through a city on foot. Everyday Walk explores light, colour and atmosphere more than plot —
+          small scenes that feel like memories you pass by.
+        </p>
+      </section>
+
+      <!-- Single-frame slider (reuses the same styles as RUN) -->
+      <section class="run-slider">
+        <div class="run-frame">
+          <img
+            id="ew-slide-img"
+            class="run-slide-img"
+            src="../images/everyday-walk-01.jpg"
+            alt="Everyday Walk illustration"
+          >
+        </div>
+
+        <p id="ew-slide-caption" class="run-caption">
+          Evening light on the way home, when everything feels a little slower.
+        </p>
+      </section>
+    </main>
+
+    <!-- Lightbox overlay with arrows -->
+    <div id="lightbox" class="lightbox-overlay">
+      <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">‹</button>
+      <img src="" alt="">
+      <button class="lightbox-arrow lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Studio Luzano. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- EVERYDAY WALK slider setup ---
+    const everydaySlides = [
+      {
+        src: '../images/everyday-walk-01.jpg',
+        alt: 'Everyday Walk illustration 1',
+        caption: 'Evening light on the way home, when everything feels a little slower.'
+      },
+      {
+        src: '../images/everyday-walk-02.jpg',
+        alt: 'Everyday Walk illustration 2',
+        caption: 'A quiet corner where the streetlights and windows overlap in colour.'
+      },
+      {
+        src: '../images/everyday-walk-03.jpg',
+        alt: 'Everyday Walk illustration 3',
+        caption: 'Passing figures, reflections and trees blending into one moment.'
+      },
+      {
+        src: '../images/everyday-walk-04.jpg',
+        alt: 'Everyday Walk illustration 4',
+        caption: 'That feeling right before going inside, when the day is still hanging in the air.'
+      }
+    ];
+
+    const ewImg      = document.getElementById('ew-slide-img');
+    const ewCaption  = document.getElementById('ew-slide-caption');
+    const lightbox   = document.getElementById('lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    let ewIndex = 0;
+
+    function showEverydaySlide(index) {
+      if (!ewImg || !ewCaption) return;
+
+      if (index < 0) index = everydaySlides.length - 1;
+      if (index >= everydaySlides.length) index = 0;
+      ewIndex = index;
+
+      const slide = everydaySlides[ewIndex];
+
+      // fade out
+      ewImg.style.opacity = 0;
+
+      setTimeout(() => {
+        ewImg.src = slide.src;
+        ewImg.alt = slide.alt;
+        ewCaption.textContent = slide.caption;
+
+        // fade in
+        ewImg.style.opacity = 1;
+
+        // keep lightbox in sync if it's open
+        if (lightbox && lightbox.classList.contains('visible') && lightboxImg) {
+          lightboxImg.src = slide.src;
+          lightboxImg.alt = slide.alt;
+        }
+      }, 200);
+    }
+
+    // Click small image to advance to the next slide
+    if (ewImg) {
+      ewImg.addEventListener('click', () => {
+        showEverydaySlide(ewIndex + 1);
+      });
+    }
+
+    // Initial slide
+    showEverydaySlide(0);
+
+    // --- Lightbox (click to enlarge current slide) ---
+    if (ewImg && lightbox && lightboxImg) {
+      // Open lightbox when double-clicking the small image (or change to single click if you prefer)
+      ewImg.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        const slide = everydaySlides[ewIndex];
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.alt;
+        lightbox.classList.add('visible');
+      });
+
+      // Close only when clicking on the dark background
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('visible');
+          lightboxImg.src = '';
+        }
+      });
+
+      // Prevent image click from closing the lightbox
+      lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    // Lightbox arrows – reuse the same slider logic
+    if (lightboxPrev && lightboxNext && lightboxImg) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showEverydaySlide(ewIndex - 1);
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showEverydaySlide(ewIndex + 1);
+      });
+    }
+  </script>
+</body>
+</html>
