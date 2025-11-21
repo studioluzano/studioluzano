@@ -1,54 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Plein Air Studies – Antonio Luzano</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <title>Plein Air Studies · Studio Luzano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plein air paintings and studies by Antonio Luzano, painted on location to explore light, space and atmosphere." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
 </head>
+
 <body>
   <div class="page">
+    <!-- Same header as the other project pages -->
     <header class="site-header">
-      <a href="../index.html" class="site-title">Antonio Luzano</a>
-      <nav class="site-nav">
-        <a href="everyday-walk.html">Everyday Walk</a>
-        <a href="run.html">RUN</a>
-        <a href="personal.html">Personal</a>
-        <a href="pleinair.html" class="is-active">Plein Air</a>
+      <a href="../index.html" class="avatar-wrapper">
+        <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
+      </a>
+
+      <h1 class="site-title">
+        <a href="../index.html">
+          <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
+        </a>
+      </h1>
+
+      <p class="tagline">Illustrator · Concept Artist</p>
+
+      <nav class="section-nav">
+        <ul class="menu">
+          <li class="menu-item has-dropdown">
+            <a href="#">Illustration</a>
+            <ul class="dropdown">
+              <li><a href="run.html">RUN</a></li>
+              <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
+              <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
+              <li><a href="everyday-walk.html">Everyday Walk</a></li>
+              <li><a href="personal.html">Personal</a></li>
+              <li><a href="pleinair.html">Plein Air</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item has-dropdown">
+            <a href="#">Concept Art</a>
+            <ul class="dropdown">
+              <li><a href="concept-art.html">NDA Portfolio</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
+        </ul>
       </nav>
     </header>
 
-    <main class="project">
-      <section class="project-header">
-        <h1 class="project-title">Plein Air Studies</h1>
-        <p class="project-description">
-          Small plein air paintings made on location, studying light, weather
-          and everyday corners of the city.
+    <main>
+      <!-- Intro for the project -->
+      <section class="project-intro">
+        <h1 class="page-title">Plein Air Studies</h1>
+        <p class="page-intro">
+          Small paintings and studies made on location — a way to learn from real light, weather
+          and the quiet rhythms of streets, trees and buildings.
         </p>
       </section>
 
-      <section class="project-gallery">
-        <div class="slideshow"
-             data-slideshow
-             data-prefix="../img/pleinair-"
-             data-count="12"
-             data-alt-base="Plein air painting">
-          <button class="slideshow-btn prev" aria-label="Previous image">‹</button>
+      <!-- Single-frame slider -->
+      <section class="run-slider">
+        <div class="run-frame">
+          <button class="run-arrow run-prev" aria-label="Previous painting">‹</button>
 
-          <div class="slideshow-main">
-            <img src="../img/pleinair-1.jpg"
-                 alt="Plein air painting 1"
-                 class="slideshow-image">
-          </div>
+          <img
+            id="run-slide-img"
+            class="run-slide-img"
+            src="../images/pleinair-1.jpg"
+            alt="Plein air painting 1"
+          >
 
-          <button class="slideshow-btn next" aria-label="Next image">›</button>
-
-          <div class="slideshow-thumbs" aria-label="Thumbnails"></div>
+          <button class="run-arrow run-next" aria-label="Next painting">›</button>
         </div>
+
+        <p id="run-slide-caption" class="run-caption">
+          Plein air study painted on location, focusing on light and overall impression.
+        </p>
       </section>
     </main>
+
+    <div id="lightbox" class="lightbox-overlay">
+      <button class="lightbox-arrow lightbox-prev" aria-label="Previous painting">‹</button>
+      <img src="" alt="">
+      <button class="lightbox-arrow lightbox-next" aria-label="Next painting">›</button>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Studio Luzano. All rights reserved.</p>
+    </footer>
   </div>
 
-  <script src="../slideshow.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const runSlides = [
+      { src: '../images/pleinair-1.jpg',  alt: 'Plein air painting 1',  caption: 'Plein air study painted on location, focusing on light and overall impression.' },
+      { src: '../images/pleinair-2.jpg',  alt: 'Plein air painting 2',  caption: 'Quick study capturing changing weather and the feeling of the moment.' },
+      { src: '../images/pleinair-3.jpg',  alt: 'Plein air painting 3',  caption: 'Exploring tree shapes, edges and the space between forms.' },
+      { src: '../images/pleinair-4.jpg',  alt: 'Plein air painting 4',  caption: 'Urban corner painted from life, focusing on big shapes first.' },
+      { src: '../images/pleinair-5.jpg',  alt: 'Plein air painting 5',  caption: 'Experiment with limited palette and strong light direction.' },
+      { src: '../images/pleinair-6.jpg',  alt: 'Plein air painting 6',  caption: 'Small postcard-sized study done in one sitting.' },
+      { src: '../images/pleinair-7.jpg',  alt: 'Plein air painting 7',  caption: 'Playing with atmosphere and distance using edges and value.' },
+      { src: '../images/pleinair-8.jpg',  alt: 'Plein air painting 8',  caption: 'Focusing on gesture of the scene rather than detail.' },
+      { src: '../images/pleinair-9.jpg',  alt: 'Plein air painting 9',  caption: 'Evening light study with long shadows and warm/cool contrast.' },
+      { src: '../images/pleinair-10.jpg', alt: 'Plein air painting 10', caption: 'Quick impression of a street corner before the light changed.' },
+      { src: '../images/pleinair-11.jpg', alt: 'Plein air painting 11', caption: 'Simplifying complexity into a few clear shapes and values.' },
+      { src: '../images/pleinair-12.jpg', alt: 'Plein air painting 12', caption: 'A quiet spot, painted slowly and observed carefully.' }
+    ];
+
+    const runImg      = document.getElementById('run-slide-img');
+    const runCaption  = document.getElementById('run-slide-caption');
+    const prevBtn     = document.querySelector('.run-prev');
+    const nextBtn     = document.querySelector('.run-next');
+
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    let runIndex = 0;
+
+    function showRunSlide(index) {
+      if (!runImg || !runCaption) return;
+
+      if (index < 0) index = runSlides.length - 1;
+      if (index >= runSlides.length) index = 0;
+      runIndex = index;
+
+      const slide = runSlides[runIndex];
+
+      runImg.style.opacity = 0;
+
+      setTimeout(() => {
+        runImg.src = slide.src;
+        runImg.alt = slide.alt;
+        runCaption.textContent = slide.caption;
+
+        runImg.style.opacity = 1;
+
+        if (lightbox && lightbox.classList.contains('visible') && lightboxImg) {
+          lightboxImg.src = slide.src;
+          lightboxImg.alt = slide.alt;
+        }
+      }, 200);
+    }
+
+    if (prevBtn && nextBtn && runSlides.length) {
+      prevBtn.addEventListener('click', () => showRunSlide(runIndex - 1));
+      nextBtn.addEventListener('click', () => showRunSlide(runIndex + 1));
+      showRunSlide(0);
+    }
+
+    if (runImg && lightbox && lightboxImg) {
+      runImg.addEventListener('click', () => {
+        const slide = runSlides[runIndex];
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.alt;
+        lightbox.classList.add('visible');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('visible');
+          lightboxImg.src = '';
+        }
+      });
+
+      lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    if (lightboxPrev && lightboxNext && lightboxImg) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex - 1);
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex + 1);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        showRunSlide(runIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        showRunSlide(runIndex + 1);
+      } else if (e.key === 'Escape' && lightbox && lightbox.classList.contains('visible')) {
+        lightbox.classList.remove('visible');
+        if (lightboxImg) lightboxImg.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
