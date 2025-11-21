@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Plein Air – Portfolio</title>
+  <title>Plein Air Studies – Antonio Luzano</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <div class="page">
     <header class="site-header">
-      <a href="index.html" class="site-title">Antonio Luzano</a>
+      <a href="../index.html" class="site-title">Antonio Luzano</a>
       <nav class="site-nav">
         <a href="everyday-walk.html">Everyday Walk</a>
         <a href="run.html">RUN</a>
@@ -22,21 +22,21 @@
       <section class="project-header">
         <h1 class="project-title">Plein Air Studies</h1>
         <p class="project-description">
-          Small plein air paintings and sketches made on location —
-          studying light, atmosphere and everyday corners of the city and nature.
+          Small plein air paintings made on location, studying light, weather
+          and everyday corners of the city.
         </p>
       </section>
 
       <section class="project-gallery">
         <div class="slideshow"
              data-slideshow
-             data-prefix="pleinair-"
+             data-prefix="../img/pleinair-"
              data-count="12"
              data-alt-base="Plein air painting">
           <button class="slideshow-btn prev" aria-label="Previous image">‹</button>
 
           <div class="slideshow-main">
-            <img src="pleinair-1.jpg"
+            <img src="../img/pleinair-1.jpg"
                  alt="Plein air painting 1"
                  class="slideshow-image">
           </div>
@@ -49,66 +49,6 @@
     </main>
   </div>
 
-  <!-- You can reuse the same script block as in personal.html -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const slideshow = document.querySelector("[data-slideshow]");
-      if (!slideshow) return;
-
-      const prefix = slideshow.dataset.prefix || "";
-      const count = parseInt(slideshow.dataset.count || "0", 10);
-      const altBase = slideshow.dataset.altBase || "Image";
-
-      let current = 1;
-
-      const mainImg = slideshow.querySelector(".slideshow-main img");
-      const thumbsContainer = slideshow.querySelector(".slideshow-thumbs");
-      const prevBtn = slideshow.querySelector(".slideshow-btn.prev");
-      const nextBtn = slideshow.querySelector(".slideshow-btn.next");
-
-      if (!mainImg || !thumbsContainer) return;
-
-      function updateImage(index) {
-        current = index;
-        mainImg.src = `${prefix}${current}.jpg`;
-        mainImg.alt = `${altBase} ${current}`;
-
-        const allThumbs = thumbsContainer.querySelectorAll("button");
-        allThumbs.forEach(btn => btn.classList.remove("is-active"));
-        const activeThumb = thumbsContainer.querySelector(`button[data-index="${current}"]`);
-        if (activeThumb) activeThumb.classList.add("is-active");
-      }
-
-      for (let i = 1; i <= count; i++) {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "slideshow-thumb";
-        btn.dataset.index = i;
-
-        const img = document.createElement("img");
-        img.src = `${prefix}${i}.jpg`;
-        img.alt = `${altBase} ${i}`;
-
-        btn.appendChild(img);
-        thumbsContainer.appendChild(btn);
-
-        btn.addEventListener("click", () => {
-          updateImage(i);
-        });
-      }
-
-      prevBtn?.addEventListener("click", () => {
-        const nextIndex = current === 1 ? count : current - 1;
-        updateImage(nextIndex);
-      });
-
-      nextBtn?.addEventListener("click", () => {
-        const nextIndex = current === count ? 1 : current + 1;
-        updateImage(nextIndex);
-      });
-
-      updateImage(1);
-    });
-  </script>
+  <script src="../slideshow.js"></script>
 </body>
 </html>
