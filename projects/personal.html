@@ -1,56 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Personal Illustrations – Antonio Luzano</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- note the ../ -->
-  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8" />
+  <title>Personal Illustrations · Studio Luzano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A selection of personal illustrations by Antonio Luzano: experiments in colour, light and quiet storytelling." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
 </head>
+
 <body>
   <div class="page">
+    <!-- Same header as the other project pages -->
     <header class="site-header">
-      <a href="../index.html" class="site-title">Antonio Luzano</a>
-      <nav class="site-nav">
-        <a href="everyday-walk.html">Everyday Walk</a>
-        <a href="run.html">RUN</a>
-        <a href="personal.html" class="is-active">Personal</a>
-        <a href="pleinair.html">Plein Air</a>
+      <!-- Avatar → home -->
+      <a href="../index.html" class="avatar-wrapper">
+        <img src="../images/avatar.png" alt="Portrait of Antonio Luzano" class="avatar">
+      </a>
+
+      <!-- Hand-drawn logo → home -->
+      <h1 class="site-title">
+        <a href="../index.html">
+          <img src="../images/logo-name.png" alt="Antonio Luzano" class="name-logo">
+        </a>
+      </h1>
+
+      <p class="tagline">Illustrator · Concept Artist</p>
+
+      <!-- Top navigation -->
+      <nav class="section-nav">
+        <ul class="menu">
+          <li class="menu-item has-dropdown">
+            <a href="#">Illustration</a>
+            <ul class="dropdown">
+              <li><a href="run.html">RUN</a></li>
+              <li><a href="un-peu-de-toi.html">Un peu de toi</a></li>
+              <li><a href="jackies-drawing.html">Jackie’s Drawing</a></li>
+              <li><a href="everyday-walk.html">Everyday Walk</a></li>
+              <li><a href="personal.html">Personal</a></li>
+              <li><a href="pleinair.html">Plein Air</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item has-dropdown">
+            <a href="#">Concept Art</a>
+            <ul class="dropdown">
+              <li><a href="concept-art.html">NDA Portfolio</a></li>
+            </ul>
+          </li>
+
+          <li class="menu-item">
+            <a href="studio-luzano-koulu.html">Studio Luzano Koulu</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="about.html">About</a>
+          </li>
+        </ul>
       </nav>
     </header>
 
-    <main class="project">
-      <section class="project-header">
-        <h1 class="project-title">Personal Illustrations</h1>
-        <p class="project-description">
-          Personal explorations in color, light and quiet storytelling,
-          painted between client projects.
+    <main>
+      <!-- Intro for the project -->
+      <section class="project-intro">
+        <h1 class="page-title">Personal Illustrations</h1>
+        <p class="page-intro">
+          A selection of personal pieces created between client projects — chances to play with colour, light,
+          and quiet storytelling without a brief, just curiosity.
         </p>
       </section>
 
-      <section class="project-gallery">
-        <div class="slideshow"
-             data-slideshow
-             data-prefix="../img/personal-"
-             data-count="18"
-             data-alt-base="Personal illustration">
-          <button class="slideshow-btn prev" aria-label="Previous image">‹</button>
+      <!-- Single-frame slider (same structure as RUN) -->
+      <section class="run-slider">
+        <div class="run-frame">
+          <button class="run-arrow run-prev" aria-label="Previous image">‹</button>
 
-          <div class="slideshow-main">
-            <img src="../img/personal-1.jpg"
-                 alt="Personal illustration 1"
-                 class="slideshow-image">
-          </div>
+          <img
+            id="run-slide-img"
+            class="run-slide-img"
+            src="../images/personal-1.jpg"
+            alt="Personal illustration 1"
+          >
 
-          <button class="slideshow-btn next" aria-label="Next image">›</button>
-
-          <div class="slideshow-thumbs" aria-label="Thumbnails"></div>
+          <button class="run-arrow run-next" aria-label="Next image">›</button>
         </div>
+
+        <p id="run-slide-caption" class="run-caption">
+          Personal illustration exploring mood, atmosphere and small narrative moments.
+        </p>
       </section>
     </main>
+
+    <!-- Lightbox overlay with arrows (same as RUN) -->
+    <div id="lightbox" class="lightbox-overlay">
+      <button class="lightbox-arrow lightbox-prev" aria-label="Previous image">‹</button>
+      <img src="" alt="">
+      <button class="lightbox-arrow lightbox-next" aria-label="Next image">›</button>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Studio Luzano. All rights reserved.</p>
+    </footer>
   </div>
 
-  <!-- again, note the ../ -->
-  <script src="../slideshow.js"></script>
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- Slider setup (reusing the same structure/logic as RUN) ---
+    const runSlides = [
+      { src: '../images/personal-1.jpg',  alt: 'Personal illustration 1',  caption: 'Personal illustration exploring mood, atmosphere and small narrative moments.' },
+      { src: '../images/personal-2.jpg',  alt: 'Personal illustration 2',  caption: 'Study in light and shadow with a focus on simple shapes.' },
+      { src: '../images/personal-3.jpg',  alt: 'Personal illustration 3',  caption: 'A small character moment framed by environment and colour.' },
+      { src: '../images/personal-4.jpg',  alt: 'Personal illustration 4',  caption: 'Playing with limited palette and strong silhouettes.' },
+      { src: '../images/personal-5.jpg',  alt: 'Personal illustration 5',  caption: 'Exploring softness, texture and quiet storytelling.' },
+      { src: '../images/personal-6.jpg',  alt: 'Personal illustration 6',  caption: 'Experiment with composition and off-centre focus.' },
+      { src: '../images/personal-7.jpg',  alt: 'Personal illustration 7',  caption: 'Warm vs cool contrast to guide the eye through the scene.' },
+      { src: '../images/personal-8.jpg',  alt: 'Personal illustration 8',  caption: 'A quiet scene that hints at a larger story outside the frame.' },
+      { src: '../images/personal-9.jpg',  alt: 'Personal illustration 9',  caption: 'Character and environment working together to carry emotion.' },
+      { src: '../images/personal-10.jpg', alt: 'Personal illustration 10', caption: 'Exploring gesture and flow in the shapes of the composition.' },
+      { src: '../images/personal-11.jpg', alt: 'Personal illustration 11', caption: 'Atmospheric study focusing on depth and edges.' },
+      { src: '../images/personal-12.jpg', alt: 'Personal illustration 12', caption: 'Experiment with stylisation and simplified forms.' },
+      { src: '../images/personal-13.jpg', alt: 'Personal illustration 13', caption: 'Everyday life filtered through a slightly surreal lens.' },
+      { src: '../images/personal-14.jpg', alt: 'Personal illustration 14', caption: 'Focus on texture and subtle lighting shifts.' },
+      { src: '../images/personal-15.jpg', alt: 'Personal illustration 15', caption: 'Playing with scale between the character and their world.' },
+      { src: '../images/personal-16.jpg', alt: 'Personal illustration 16', caption: 'Colour study: pushing saturation while keeping readability.' },
+      { src: '../images/personal-17.jpg', alt: 'Personal illustration 17', caption: 'A small narrative beat captured in a single frame.' },
+      { src: '../images/personal-18.jpg', alt: 'Personal illustration 18', caption: 'Closing piece tying together light, mood and gesture.' }
+    ];
+
+    const runImg      = document.getElementById('run-slide-img');
+    const runCaption  = document.getElementById('run-slide-caption');
+    const prevBtn     = document.querySelector('.run-prev');
+    const nextBtn     = document.querySelector('.run-next');
+
+    const lightbox    = document.getElementById('lightbox');
+    const lightboxImg = lightbox ? lightbox.querySelector('img') : null;
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    let runIndex = 0;
+
+    function showRunSlide(index) {
+      if (!runImg || !runCaption) return;
+
+      if (index < 0) index = runSlides.length - 1;
+      if (index >= runSlides.length) index = 0;
+      runIndex = index;
+
+      const slide = runSlides[runIndex];
+
+      // fade out
+      runImg.style.opacity = 0;
+
+      setTimeout(() => {
+        runImg.src = slide.src;
+        runImg.alt = slide.alt;
+        runCaption.textContent = slide.caption;
+
+        // fade in
+        runImg.style.opacity = 1;
+
+        // keep lightbox in sync
+        if (lightbox && lightbox.classList.contains('visible') && lightboxImg) {
+          lightboxImg.src = slide.src;
+          lightboxImg.alt = slide.alt;
+        }
+      }, 200);
+    }
+
+    if (prevBtn && nextBtn && runSlides.length) {
+      prevBtn.addEventListener('click', () => showRunSlide(runIndex - 1));
+      nextBtn.addEventListener('click', () => showRunSlide(runIndex + 1));
+      showRunSlide(0);
+    }
+
+    if (runImg && lightbox && lightboxImg) {
+      runImg.addEventListener('click', () => {
+        const slide = runSlides[runIndex];
+        lightboxImg.src = slide.src;
+        lightboxImg.alt = slide.alt;
+        lightbox.classList.add('visible');
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          lightbox.classList.remove('visible');
+          lightboxImg.src = '';
+        }
+      });
+
+      lightboxImg.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
+    if (lightboxPrev && lightboxNext && lightboxImg) {
+      lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex - 1);
+      });
+
+      lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showRunSlide(runIndex + 1);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        showRunSlide(runIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        showRunSlide(runIndex + 1);
+      } else if (e.key === 'Escape' && lightbox && lightbox.classList.contains('visible')) {
+        lightbox.classList.remove('visible');
+        if (lightboxImg) lightboxImg.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
