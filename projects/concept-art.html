@@ -5,8 +5,19 @@
   <title>Animation Concept Art – NDA Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Password-protected animation concept art portfolio by Antonio Luzano." />
+  <!-- Keep this section out of search results -->
+  <meta name="robots" content="noindex, nofollow" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=concept" />
+  <style>
+    /* Local safety net so the lock always works even if styles.css changes */
+    .hidden { display: none !important; }
+    /* Light deterrents (still screenshot-able) */
+    #protected-content img {
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -29,7 +40,7 @@
 
       <nav class="section-nav">
         <ul class="menu">
-                   <li class="menu-item has-dropdown">
+          <li class="menu-item has-dropdown">
             <a href="#">Illustration</a>
             <ul class="dropdown">
               <li><a href="run.html">RUN</a></li>
@@ -70,33 +81,33 @@
 
         <!-- Password box -->
         <div id="password-box" class="password-box">
-          <form id="password-form" class="password-form">
+          <form id="password-form" class="password-form" autocomplete="off">
             <label for="portfolio-password">Enter password</label>
             <input
               type="password"
               id="portfolio-password"
-              autocomplete="off"
+              autocomplete="new-password"
               placeholder="Password"
+              inputmode="text"
             />
             <button type="submit">Enter</button>
             <p class="password-hint">
               Need the password? Contact me directly.
             </p>
-            <p id="password-error" class="password-error hidden">
+            <p id="password-error" class="password-error hidden" aria-live="polite">
               Incorrect password. Please try again.
             </p>
           </form>
         </div>
 
         <!-- Protected content -->
-        <div id="protected-content" class="hidden">
+        <div id="protected-content" class="hidden" oncontextmenu="return false;">
           <p class="page-intro">
             Thank you. Below is a small selection of NDA-protected concept art.
             Please do not share or redistribute.
           </p>
 
           <section class="gallery">
-
             <figure class="gallery-item">
               <img src="../images/concept-1.jpg" alt="Keyframe concept art">
               <figcaption>Keyframe concept exploring mood and lighting.</figcaption>
@@ -111,7 +122,6 @@
               <img src="../images/concept-3.jpg" alt="Prop / vehicle concept art">
               <figcaption>Shape language exploration for props / vehicles.</figcaption>
             </figure>
-
           </section>
         </div>
       </section>
@@ -131,9 +141,12 @@
   </div>
 
   <script>
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const CORRECT_PASSWORD = "blueforest"; // change this!
+    // Obfuscated (Base64) password string — change "blueforest" to your own
+    // Generate a new one at https://www.base64encode.org/
+    const CORRECT_PASSWORD = atob("Ymx1ZWZvcmVzdA=="); // "blueforest"
 
     const form = document.getElementById('password-form');
     const input = document.getElementById('portfolio-password');
@@ -149,6 +162,8 @@
         box.style.display = 'none';
         protectedContent.classList.remove('hidden');
         error.classList.add('hidden');
+        // Optional: clear the input so it isn't left in the DOM
+        input.value = "";
       } else {
         error.classList.remove('hidden');
       }
